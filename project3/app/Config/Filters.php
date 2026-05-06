@@ -12,6 +12,9 @@ use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\PageCache;
 use CodeIgniter\Filters\PerformanceMetrics;
 use CodeIgniter\Filters\SecureHeaders;
+use Myth\Auth\Filters\LoginFilter; // add this code
+use Myth\Auth\Filters\PermissionFilter; // add this code
+use Myth\Auth\Filters\RoleFilter; // add this 
 
 class Filters extends BaseFilters
 {
@@ -25,16 +28,20 @@ class Filters extends BaseFilters
      * or [filter_name => [classname1, classname2, ...]]
      */
     public array $aliases = [
-        'csrf'          => CSRF::class,
-        'toolbar'       => DebugToolbar::class,
-        'honeypot'      => Honeypot::class,
-        'invalidchars'  => InvalidChars::class,
+        'csrf' => CSRF::class,
+        'toolbar' => DebugToolbar::class,
+        'honeypot' => Honeypot::class,
+        'invalidchars' => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'cors'          => Cors::class,
-        'forcehttps'    => ForceHTTPS::class,
-        'pagecache'     => PageCache::class,
-        'performance'   => PerformanceMetrics::class,
+        'cors' => Cors::class,
+        'forcehttps' => ForceHTTPS::class,
+        'pagecache' => PageCache::class,
+        'performance' => PerformanceMetrics::class,
+        'login' => LoginFilter::class, // add this code
+        'role' => RoleFilter::class, // add this code
+        'permission' => PermissionFilter::class // add this code
     ];
+
 
     /**
      * List of special required filters.
@@ -106,5 +113,7 @@ class Filters extends BaseFilters
      *
      * @var array<string, array<string, list<string>>>
      */
-    public array $filters = [];
+    public array $filters = [
+'login' => ['before' => ['admin/post/*']], // add this code
+];
 }
