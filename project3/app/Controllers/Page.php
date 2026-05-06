@@ -18,4 +18,9 @@ class Page extends BaseController
 	{
 		echo view("Faqs");
 	}
+
+	public function exploreMU()
+    {
+        return view('explore_mu');
+    }
 }

@@ -13,6 +13,10 @@ $routes->get('/faqs', 'Page::faqs');
 $routes->get('/post', 'Post::index');
 $routes->get('/post/(:any)', 'Post::viewPost/$1');
 
+$routes->get('/explore-mu', 'Page::exploreMU');
+$routes->get('/lang/(:any)', 'Language::switch/$1');
+
+
 $routes->group('admin', function($routes){
     $routes->get('post', 'PostAdmin::index', ['filter' => 'login']);
     $routes->get('post/(:segment)/preview', 'PostAdmin::preview/$1');
