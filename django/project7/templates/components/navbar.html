@@ -1,0 +1,66 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand d-flex align-items-center fw-bold" href="/">
+
+            <img src="{% static 'images/logo.png' %}"
+                 alt="Logo"
+                 width="45"
+                 height="45"
+                 class="me-2">
+
+            <span class="text-primary">Programming</span>
+
+            <span class="ms-1 text-dark">Learning Hub</span>
+
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/about/">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/blog/">Blog</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact/">Contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/submit/">Submit Artikel</a>
+                </li>
+
+                <li class="nav-item ms-lg-3">
+
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>

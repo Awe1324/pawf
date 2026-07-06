@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <span class="badge bg-warning text-dark px-3 py-2 mb-3">
+
+                    Platform Belajar Pemrograman
+
+                </span>
+
+                <h1>
+
+                    Belajar Programming
+                    <br>
+                    Mulai dari Dasar Hingga Mahir
+
+                </h1>
+
+                <p>
+
+                    Pelajari Python, PHP, Laravel, Django, Flask, JavaScript,
+                    HTML, CSS dan berbagai teknologi web melalui artikel yang
+                    mudah dipahami.
+
+                </p>
+
+                <div class="mt-4">
+
+                    <a href="/blog/"
+                       class="btn btn-light me-3">
+
+                        <i class="bi bi-book-fill"></i>
+
+                        Mulai Belajar
+
+                    </a>
+
+                    <a href="/submit/"
+                       class="btn btn-outline-light">
+
+                        <i class="bi bi-pencil-square"></i>
+
+                        Kirim Artikel
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+<!-- CATEGORY -->
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h2 class="section-title text-center">
+
+            Kategori Pembelajaran
+
+        </h2>
+
+        <div class="row">
+
+            {% for category in categories %}
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card shadow category-card">
+
+                    <div class="card-body text-center">
+
+                        <h5>
+
+                            {{ category.name }}
+
+                        </h5>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- BLOG -->
+
+<section class="py-5 bg-light">
+
+    <div class="container">
+
+        <h2 class="section-title text-center">
+
+            Artikel Terbaru
+
+        </h2>
+
+        <div class="row">
+
+            {% for post in latest_posts %}
+
+            <div class="col-lg-4 mb-4">
+
+                <div class="card shadow blog-card">
+
+                    {% if post.thumbnail %}
+
+                    <img src="{{ post.thumbnail.url }}"
+                         class="card-img-top">
+
+                    {% endif %}
+
+                    <div class="card-body">
+
+                        <span class="badge bg-primary">
+
+                            {{ post.category }}
+
+                        </span>
+
+                        <h4 class="mt-3">
+
+                            {{ post.title }}
+
+                        </h4>
+
+                        <p>
+
+                            {{ post.summary|truncatechars:100 }}
+
+                        </p>
+
+                        <a href="/blog/{{ post.id }}/"
+                           class="btn btn-primary">
+
+                            Baca Selengkapnya
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <h4 class="text-center">
+
+                Belum ada artikel.
+
+            </h4>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="py-5 about-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <h2 class="section-title">
+
+                    Tentang Website
+
+                </h2>
+
+                <p>
+
+                   Programming Learning Hub merupakan platform pembelajaran berbasis web yang menyediakan berbagai artikel mengenai pemrograman dan pengembangan aplikasi. Website ini dibuat untuk membantu mahasiswa dan pemula mempelajari berbagai teknologi seperti Python, PHP, Laravel, Django, Flask, JavaScript, serta topik pengembangan web lainnya secara mudah dan terstruktur.
+
+                </p>
+
+                <a href="/about/"
+                   class="btn btn-primary">
+
+                    Selengkapnya
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="py-5">
+
+    <div class="container">
+
+        <h2 class="section-title text-center">
+
+            Kenapa Belajar Disini?
+
+        </h2>
+
+        <div class="row">
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-journal-code display-4 text-primary"></i>
+
+                        <h5 class="mt-3">
+
+                            Artikel Lengkap
+
+                        </h5>
+
+                        <p>
+
+                            Materi disusun dari dasar hingga tingkat lanjutan.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-laptop display-4 text-success"></i>
+
+                        <h5 class="mt-3">
+
+                            Mudah Dipahami
+
+                        </h5>
+
+                        <p>
+
+                            Bahasa sederhana sehingga cocok untuk pemula.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-lightbulb display-4 text-warning"></i>
+
+                        <h5 class="mt-3">
+
+                            Contoh Praktis
+
+                        </h5>
+
+                        <p>
+
+                            Setiap materi dilengkapi contoh implementasi.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mb-4">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body text-center">
+
+                        <i class="bi bi-globe display-4 text-danger"></i>
+
+                        <h5 class="mt-3">
+
+                            Gratis
+
+                        </h5>
+
+                        <p>
+
+                            Seluruh artikel dapat dibaca tanpa biaya.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Blog
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h1 class="text-center fw-bold mb-5">
+
+        Artikel Programming
+
+    </h1>
+
+    <!-- Search -->
+
+    <form method="GET" class="mb-4">
+
+        <div class="input-group">
+
+            <input
+                type="text"
+                name="search"
+                class="form-control"
+                placeholder="Cari artikel...">
+
+            <button class="btn btn-primary">
+
+                Cari
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <!-- Category -->
+
+    <div class="mb-5">
+
+        <a href="/blog/"
+            class="btn btn-outline-dark btn-sm">
+
+            Semua
+
+        </a>
+
+        {% for category in categories %}
+
+        <a href="?category={{ category.id }}"
+            class="btn btn-outline-primary btn-sm">
+
+            {{ category.name }}
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- Artikel -->
+
+    <div class="row">
+
+        {% for post in posts %}
+
+        <div class="col-lg-4 mb-4">
+
+            <div class="card shadow-sm h-100">
+
+                {% if post.thumbnail %}
+
+                <img src="{{ post.thumbnail.url }}"
+                    class="card-img-top">
+
+                {% endif %}
+
+                <div class="card-body">
+
+                    <span class="badge bg-primary">
+
+                        {{ post.category }}
+
+                    </span>
+
+                    <h4 class="mt-3">
+
+                        {{ post.title }}
+
+                    </h4>
+
+                    <p>
+
+                        {{ post.summary|truncatechars:120 }}
+
+                    </p>
+
+                </div>
+
+                <div class="card-footer bg-white border-0">
+
+                    <small>
+
+                        {{ post.author_name }}
+
+                    </small>
+
+                    <br>
+
+                    <small>
+
+                        {{ post.created_at|date:"d M Y" }}
+
+                    </small>
+
+                    <br><br>
+
+                    <a href="{% url 'blog_detail' post.id %}"
+                        class="btn btn-primary">
+
+                        Baca Selengkapnya
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <h4 class="text-center">
+
+            Artikel belum tersedia.
+
+        </h4>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+
+<section class="bg-primary text-white py-5">
+
+    <div class="container text-center">
+
+        <h1 class="fw-bold">
+
+            Hubungi Kami
+
+        </h1>
+
+        <p>
+
+            Jangan ragu menghubungi kami apabila memiliki pertanyaan.
+
+        </p>
+
+    </div>
+
+</section>
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6">
+
+                <div class="card shadow border-0">
+
+                    <div class="card-body">
+
+                        <h3 class="mb-4">
+
+                            Informasi Kontak
+
+                        </h3>
+
+                        <p>
+
+                            <i class="bi bi-envelope-fill text-primary"></i>
+
+                           Email
+admin@programminghub.com
+
+                        </p>
+
+                        <p>
+
+                            <i class="bi bi-telephone-fill text-success"></i>
+
+                            09898989888
+
+                        </p>
+
+                        <p>
+
+                            <i class="bi bi-geo-alt-fill text-danger"></i>
+
+                            Tangerang
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="card shadow border-0">
+
+                    <div class="card-body">
+
+                        <h3 class="mb-4">
+
+                            Kirim Pesan
+
+                        </h3>
+
+                        <form>
+
+                            <input
+                                type="text"
+                                class="form-control mb-3"
+                                placeholder="Nama">
+
+                            <input
+                                type="email"
+                                class="form-control mb-3"
+                                placeholder="Email">
+
+                            <textarea
+                                rows="5"
+                                class="form-control mb-3"
+                                placeholder="Pesan"></textarea>
+
+                            <button class="btn btn-primary">
+
+                                Kirim
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
